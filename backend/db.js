@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+// Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/paytm');
 
 // Create a schema for the Users

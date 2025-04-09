@@ -36,7 +36,7 @@ router.post("/signup", async(req, res) => {
         userId : dbUser._id
     },JWT_SECRET)
     res.json({
-        message : "User create successfully",
+        message : "User created successfully",
         token : token
     })
 })
