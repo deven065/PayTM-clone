@@ -1,3 +1,3 @@
-## Setting up PayTM clone 
+## Setting up the basic PayTM clone 
 1. Clone this repository
 2. open your terminal and write npm install
