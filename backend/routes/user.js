@@ -5,10 +5,9 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = require("../config");
 const router = express.Router();
 const { authMiddleware } = require("../middleware");
-const { default: mongoose } = require('mongoose');
 
 // Creating signup endpoint
-const signupSchema = zod.object({
+const signupBody = zod.object({
     username : zod.string().email(),
     password : zod.string(),
     firstname : zod.string(),
@@ -16,10 +15,10 @@ const signupSchema = zod.object({
 })
 
 router.post('/signup', async (req, res) => {
-    const { success } = signupSchema.safeParse(req.body)
+    const { success } = signupBody.safeParse(req.body)
     if (!success) {
         return res.status(411).json({
-            message : "Email already taken/ Incorrect inputs"
+            message : "Email already taken / Incorrect inputs"
         })
     }
     
@@ -60,13 +59,13 @@ router.post('/signup', async (req, res) => {
 
 // Creating signin endpoint
 // This endpoint will be used to login the user
-const signinSchema = zod.object({
+const signinBody = zod.object({
     username : zod.string().email(),
     password : zod.string()
 })
 
 router.post("/signin", async (req, res) => {
-    const { success } = signinSchema.safeParse(req.body)
+    const { success } = signinBody.safeParse(req.body)
     if (!success) {
         return res.status(411).json({
             message : "Email already taken / Incorrect inputs"

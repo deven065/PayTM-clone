@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/paytm');
@@ -47,8 +47,8 @@ const accountSchema = new mongoose.Schema({
 });
 
 // Create a model from the Schema
-const User = mongoose.model("User", userSchema);
 const Account = mongoose.model('Account', accountSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = {
     User,
