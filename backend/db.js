@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/paytm")
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.error("MongoDB connection error:", err));
 
 // Create a schema for user
 const userSchema = new mongoose.Schema({
